@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @Configuration
-public class SpringBootEssentialsAdapter implements WebMvcConfigurer {
+public class ApplicationAdapter implements WebMvcConfigurer {
 
     //This configuration defines and provides a PageableHandlerMethodArgumentResolver
     @Override

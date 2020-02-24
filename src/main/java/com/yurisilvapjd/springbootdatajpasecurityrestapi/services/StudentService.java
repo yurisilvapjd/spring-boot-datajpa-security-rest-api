@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentService implements GenericService<Student, Long> {
+public class StudentService implements StudentServiceInterface {
 
     @Autowired
     StudentRepository studentRepository;

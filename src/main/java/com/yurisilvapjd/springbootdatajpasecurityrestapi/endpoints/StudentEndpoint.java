@@ -2,6 +2,7 @@ package com.yurisilvapjd.springbootdatajpasecurityrestapi.endpoints;
 
 import com.yurisilvapjd.springbootdatajpasecurityrestapi.models.Student;
 import com.yurisilvapjd.springbootdatajpasecurityrestapi.services.GenericService;
+import com.yurisilvapjd.springbootdatajpasecurityrestapi.services.StudentServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import javax.validation.Valid;
 public class StudentEndpoint {
 
     @Autowired
-    GenericService<Student, Long> studentService;
+    StudentServiceInterface studentService;
 
     @GetMapping(path = "/protected/students")
     public ResponseEntity<?> listAll(Pageable pageable) {
