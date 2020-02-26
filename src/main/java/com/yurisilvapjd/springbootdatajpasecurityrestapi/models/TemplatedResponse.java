@@ -7,13 +7,10 @@ import java.util.List;
 
 @Getter
 @Setter
-public class TemplatedResponse<T> {
+public class TemplatedResponse<T extends AbstractEntity> {
 
-    List<T> content;
-    CustomPage page;
-    StudentLinks links;
+    private List<T> content;
+    private CustomPage page;
+    private APILinks links;
 
-    public TemplatedResponse() {
-        this.links = new StudentLinks();
-    }
 }

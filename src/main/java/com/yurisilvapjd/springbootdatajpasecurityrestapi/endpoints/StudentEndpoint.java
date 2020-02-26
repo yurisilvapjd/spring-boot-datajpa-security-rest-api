@@ -27,7 +27,11 @@ public class StudentEndpoint {
         Page<Student> page = studentService.listAll(pageable);
 
         templatedResponse.setContent(page.getContent());
-        templatedResponse.setPage(new CustomPage(page.getSize(), page.getTotalElements(), page.getTotalPages(), page.getNumber()));
+        templatedResponse.setPage(new CustomPage(page.getSize(),
+                page.getTotalElements(),
+                page.getTotalPages(),
+                page.getNumber()));
+        templatedResponse.setLinks(Student.getLinks());
 
         return new ResponseEntity<>(templatedResponse, HttpStatus.OK);
     }
