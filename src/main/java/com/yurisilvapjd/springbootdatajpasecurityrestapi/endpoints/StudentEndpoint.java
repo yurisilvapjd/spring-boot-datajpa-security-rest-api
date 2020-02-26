@@ -1,9 +1,11 @@
 package com.yurisilvapjd.springbootdatajpasecurityrestapi.endpoints;
 
+import com.yurisilvapjd.springbootdatajpasecurityrestapi.models.CustomPage;
 import com.yurisilvapjd.springbootdatajpasecurityrestapi.models.Student;
-import com.yurisilvapjd.springbootdatajpasecurityrestapi.services.GenericService;
+import com.yurisilvapjd.springbootdatajpasecurityrestapi.models.TemplatedResponse;
 import com.yurisilvapjd.springbootdatajpasecurityrestapi.services.StudentServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,13 @@ public class StudentEndpoint {
     @GetMapping(path = "/protected/students")
     public ResponseEntity<?> listAll(Pageable pageable) {
 
-        return new ResponseEntity<>(studentService.listAll(pageable), HttpStatus.OK);
+        TemplatedResponse<Student> templatedResponse = new TemplatedResponse<>();
+        Page<Student> page = studentService.listAll(pageable);
+
+        templatedResponse.setContent(page.getContent());
+        templatedResponse.setPage(new CustomPage(page.getSize(), page.getTotalElements(), page.getTotalPages(), page.getNumber()));
+
+        return new ResponseEntity<>(templatedResponse, HttpStatus.OK);
     }
 
     @GetMapping(path = "/protected/students/{id}")

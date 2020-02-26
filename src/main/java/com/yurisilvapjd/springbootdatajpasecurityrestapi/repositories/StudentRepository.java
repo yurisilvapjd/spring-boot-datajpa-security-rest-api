@@ -4,10 +4,9 @@ import com.yurisilvapjd.springbootdatajpasecurityrestapi.models.Student;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentRepository extends PagingAndSortingRepository<Student, Long> {
 
-    Student findByName(String name);
-
-    List<Student> findByNameIgnoreCaseContaining(String name);
+    Optional<List<Student>> findByNameIgnoreCaseContaining(String name);
 }

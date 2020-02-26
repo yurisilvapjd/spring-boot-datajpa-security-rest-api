@@ -9,5 +9,4 @@ public class SpringBootDatajpaSecurityRestApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDatajpaSecurityRestApiApplication.class, args);
 	}
-
 }
