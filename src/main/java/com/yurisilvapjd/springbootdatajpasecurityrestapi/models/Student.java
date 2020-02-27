@@ -26,10 +26,10 @@ public class Student extends AbstractEntity{
     @JsonIgnore
     static final EntityEndpointLinks links = new EntityEndpointLinks(
             "http://localhost:8080/v1/admin/students",
-            "http://localhost:8080/v1/protected/students",
+            "http://localhost:8080/v1/protected/students{?page,size,sort}",
             "http://localhost:8080/v1/protected/students{id}",
             "http://localhost:8080/v1/protected/students/findbyname/{name}",
-            "http://localhost:8080/v1/protected/students{id}"
+            "http://localhost:8080/v1/admin/students{id}"
     );
 
     public Student() {
