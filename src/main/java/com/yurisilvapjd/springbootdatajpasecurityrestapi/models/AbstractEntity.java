@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-public abstract class AbstractEntity implements Serializable {
+public abstract class AbstractEntity implements Serializable, ReachableViaEndpoind {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

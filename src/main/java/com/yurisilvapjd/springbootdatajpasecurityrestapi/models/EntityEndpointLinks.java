@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public final class APILinks {
+public final class EntityEndpointLinks {
 
     private String createAndUpdate;
     private String getAll;
@@ -13,7 +13,7 @@ public final class APILinks {
     private String search;
     private String delete;
 
-    public APILinks(String createAndUpdate, String getAll, String getById, String search, String delete) {
+    public EntityEndpointLinks(String createAndUpdate, String getAll, String getById, String search, String delete) {
         this.createAndUpdate = createAndUpdate;
         this.getAll = getAll;
         this.getById = getById;

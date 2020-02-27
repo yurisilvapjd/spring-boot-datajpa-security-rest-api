@@ -23,4 +23,8 @@ public class User extends AbstractEntity {
     private String name;
     private boolean admin;
 
+    @Override
+    public EntityEndpointLinks getAPILinks() {
+        return null;
+    }
 }

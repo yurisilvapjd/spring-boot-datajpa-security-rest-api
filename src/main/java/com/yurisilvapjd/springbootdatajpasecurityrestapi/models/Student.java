@@ -24,8 +24,7 @@ public class Student extends AbstractEntity{
 
     @Transient
     @JsonIgnore
-    @Getter
-    static final APILinks links = new APILinks(
+    static final EntityEndpointLinks links = new EntityEndpointLinks(
             "http://localhost:8080/v1/admin/students",
             "http://localhost:8080/v1/protected/students",
             "http://localhost:8080/v1/protected/students{id}",
@@ -40,5 +39,11 @@ public class Student extends AbstractEntity{
                    @NotEmpty(message = "The field email must not be empty") @Email String email) {
         this.name = name;
         this.email = email;
+    }
+
+    @Override
+    @JsonIgnore
+    public EntityEndpointLinks getAPILinks() {
+        return links;
     }
 }
