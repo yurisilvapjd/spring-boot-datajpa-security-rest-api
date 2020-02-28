@@ -3,8 +3,6 @@ package com.yurisilvapjd.springbootdatajpasecurityrestapi.services;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 public interface GenericService<T, ID>{
 
     T save(T t);
@@ -17,7 +15,7 @@ public interface GenericService<T, ID>{
 
     Page<T> listAll(Pageable pageable);
 
-    List<T> findByName(String name);
+    Page<T> findByName(String name, Pageable pageable);
 
     boolean isUnique(Long id);
 

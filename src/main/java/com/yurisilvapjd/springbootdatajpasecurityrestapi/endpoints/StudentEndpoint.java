@@ -50,7 +50,7 @@ public class StudentEndpoint {
 
     @GetMapping(path = "/protected/students/findbyname/{name}")
     public ResponseEntity<?> findStudentsByName(@PathVariable("name") String name, Pageable pageable) {
-        return new ResponseEntity<>(studentService.findByName(name), HttpStatus.OK);
+        return new ResponseEntity<>(new TemplatedResponse<>(Student.class,studentService.findByName(name, pageable)), HttpStatus.OK);
     }
 
 }

@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class StudentService implements StudentServiceInterface {
 
@@ -22,8 +20,8 @@ public class StudentService implements StudentServiceInterface {
     }
 
     @Override
-    public List<Student> findByName(String name) {
-        return studentRepository.findByNameIgnoreCaseContaining(name)
+    public Page<Student> findByName(String name, Pageable pageable) {
+        return studentRepository.findByNameIgnoreCaseContaining(name, pageable)
                 .orElseThrow(()-> new ResourceNotFoundException("Student not found for name: " + name));
     }
 
